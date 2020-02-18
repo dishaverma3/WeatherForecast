@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.WeatherCurrent"
+    android:background="@drawable/sky_wallpaper"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textSize="30sp"
+            android:text="Bangalore"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/temp_celcius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="30"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="100sp"
+            app:layout_constraintStart_toStartOf="@id/location"
+            app:layout_constraintTop_toBottomOf="@id/location"
+            app:layout_constraintEnd_toEndOf="@id/location"/>
+
+        <ImageView
+            android:id="@+id/image_weather"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toTopOf="@id/weather"
+            app:layout_constraintEnd_toEndOf="@id/temp_celcius"
+            app:layout_constraintStart_toStartOf="@id/temp_celcius"
+            app:layout_constraintTop_toBottomOf="@id/temp_celcius" />
+
+        <TextView
+            android:id="@+id/weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HOT"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="@id/image_weather"
+            app:layout_constraintTop_toBottomOf="@id/image_weather"
+            app:layout_constraintEnd_toEndOf="@id/image_weather"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/filter_fragment"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="78dp"
+        app:behavior_skipCollapsed="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:layout_height="300dp"
+        android:background="@drawable/border"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
