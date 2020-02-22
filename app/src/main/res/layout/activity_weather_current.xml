@@ -1,180 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:id="@+id/container"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.psoffritti.slidingpanel.SlidingPanel xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sliding_panel"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.WeatherCurrent"
-    android:background="@drawable/sky_wallpaper"
-    >
+    android:layout_height="match_parent"
+
+    app:orientation="vertical"
+    app:nonSlidingView="@id/container"
+    app:slidingView="@id/filter_fragment"
+    app:layout_anchor="@id/filter_fragment"
+    android:background="@drawable/day"
+    app:elevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="90dp">
 
-        <TextView
-            android:id="@+id/temp_celcius"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="120dp"
-            android:text="30&#xb0;C"
-            android:textColor="@android:color/white"
-            android:fontFamily="cursive"
-            android:textSize="80sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/temp_celcius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="120dp"
+        android:text="30&#xb0;C"
+        android:textColor="@android:color/white"
+        android:fontFamily="cursive"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loading"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:fontFamily="monospace"
-            android:layout_margin="10dp"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="@id/temp_celcius"
-            app:layout_constraintTop_toBottomOf="@id/temp_celcius"
-            app:layout_constraintEnd_toEndOf="@id/temp_celcius"
-            />
+    <TextView
+        android:id="@+id/weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:fontFamily="monospace"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@id/temp_celcius"
+        app:layout_constraintTop_toBottomOf="@id/temp_celcius"
+        app:layout_constraintEnd_toEndOf="@id/temp_celcius"
+        />
 
-        <TextView
-            android:id="@+id/location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loading"
-            android:gravity="center"
-            android:textStyle="italic"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="@id/weather"
-            app:layout_constraintTop_toBottomOf="@id/weather"
-            app:layout_constraintEnd_toEndOf="@id/weather"
-            />
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@id/weather"
+        app:layout_constraintTop_toBottomOf="@id/weather"
+        app:layout_constraintEnd_toEndOf="@id/weather"
+        />
 
-        <ImageView
-            android:id="@+id/image_weather"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="@id/weather"
-            app:layout_constraintStart_toStartOf="@id/weather"
-            app:layout_constraintTop_toBottomOf="@id/weather"
-            tools:ignore="ContentDescription" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_view"
-            android:layout_margin="10sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            card_view:cardBackgroundColor="#C0FFFFFF"
-            card_view:cardCornerRadius="10dp"
-            card_view:cardElevation="5dp"
-            app:layout_constraintEnd_toEndOf="@id/image_weather"
-            app:layout_constraintStart_toStartOf="@id/image_weather"
-            app:layout_constraintTop_toBottomOf="@id/image_weather"
-            card_view:cardUseCompatPadding="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TableLayout
-                    android:padding="10sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:stretchColumns="1">
-
-                    <TableRow>
-
-                        <TextView
-                            android:layout_column="1"
-                            android:text="Weather"
-                            android:padding="5dip" />
-
-                        <TextView
-                            android:id="@+id/main"
-                            android:layout_column="2"
-                            android:text="Cloudy"
-                            android:gravity="right"
-                            android:padding="5dip" />
-
-                        <TextView
-                            android:id="@+id/description"
-                            android:layout_column="3"
-                            android:text="(Broken clouds)"
-                            android:gravity="right"
-                            android:padding="5dip" />
-                    </TableRow>
-
-                    <TableRow>
-                        <TextView
-                            android:layout_column="1"
-                            android:text="Temperature(Min.)"
-                            android:padding="5dip" />
-                        <TextView
-                            android:layout_column="3"
-                            android:id="@+id/temp_min"
-                            android:text="temp"
-                            android:gravity="right"
-                            android:padding="5dip" />
-
-                    </TableRow>
-
-                    <TableRow>
-                        <TextView
-                            android:layout_column="1"
-                            android:text="Temperature(Max.)"
-                            android:padding="5dip" />
-                        <TextView
-                            android:layout_column="3"
-                            android:id="@+id/temp_max"
-                            android:text="temp"
-                            android:gravity="right"
-                            android:padding="5dip" />
-
-                    </TableRow>
-
-                    <TableRow>
-                        <TextView
-                            android:layout_column="1"
-                            android:text="Wind"
-                            android:padding="5dip" />
-                        <TextView
-                            android:id="@+id/wind_speed"
-                            android:layout_column="3"
-                            android:text=""
-                            android:gravity="right"
-                            android:padding="5dip" />
-                    </TableRow>
-
-                </TableLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/image_weather"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@id/weather"
+        app:layout_constraintStart_toStartOf="@id/weather"
+        app:layout_constraintTop_toBottomOf="@id/weather"
+        tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <FrameLayout
-        android:id="@+id/filter_fragment"
-        app:behavior_hideable="false"
-        app:behavior_peekHeight="100dp"
-        app:behavior_skipCollapsed="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        android:layout_height="300dp"
-        android:background="@drawable/border"
-        android:layout_width="match_parent">
 
         <LinearLayout
+            android:id="@+id/filter_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/border"
             android:orientation="vertical">
 
             <ImageView
@@ -185,11 +91,178 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
 
-        </LinearLayout>
-    </FrameLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view"
+                android:layout_margin="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#C0FFFFFF"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@id/image_weather"
+                app:layout_constraintStart_toStartOf="@id/image_weather"
+                app:layout_constraintTop_toBottomOf="@id/image_weather"
+                app:cardUseCompatPadding="true">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TableLayout
+                        android:padding="10sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:stretchColumns="1">
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_column="1"
+                                android:text="Weather"
+                                android:padding="5dip" />
+
+                            <TextView
+                                android:id="@+id/main"
+                                android:layout_column="2"
+                                android:text="Cloudy"
+                                android:gravity="right"
+                                android:padding="5dip" />
+
+                            <TextView
+                                android:id="@+id/description"
+                                android:layout_column="3"
+                                android:text="(Broken clouds)"
+                                android:gravity="right"
+                                android:padding="5dip" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:layout_column="1"
+                                android:text="Temperature(Min.)"
+                                android:padding="5dip" />
+                            <TextView
+                                android:layout_column="3"
+                                android:id="@+id/temp_min"
+                                android:text="temp"
+                                android:gravity="right"
+                                android:padding="5dip" />
+
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:layout_column="1"
+                                android:text="Temperature(Max.)"
+                                android:padding="5dip" />
+                            <TextView
+                                android:layout_column="3"
+                                android:id="@+id/temp_max"
+                                android:text="temp"
+                                android:gravity="right"
+                                android:padding="5dip" />
+
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:layout_column="1"
+                                android:text="Wind"
+                                android:padding="5dip" />
+                            <TextView
+                                android:id="@+id/wind_speed"
+                                android:layout_column="3"
+                                android:text=""
+                                android:gravity="right"
+                                android:padding="5dip" />
+                        </TableRow>
+
+                    </TableLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+</com.psoffritti.slidingpanel.SlidingPanel>
+<!--<androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--    android:id="@+id/container"-->
+<!--    xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".ui.WeatherCurrent"-->
+<!--    android:background="@drawable/sky_wallpaper"-->
+<!--    >-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/temp_celcius"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginTop="120dp"-->
+<!--            android:text="30&#xb0;C"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:fontFamily="cursive"-->
+<!--            android:textSize="80sp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/weather"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/loading"-->
+<!--            android:textSize="30sp"-->
+<!--            android:gravity="center"-->
+<!--            android:fontFamily="monospace"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            app:layout_constraintStart_toStartOf="@id/temp_celcius"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/temp_celcius"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/temp_celcius"-->
+<!--            />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/location"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/loading"-->
+<!--            android:gravity="center"-->
+<!--            android:textStyle="italic"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            app:layout_constraintStart_toStartOf="@id/weather"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/weather"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/weather"-->
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/image_weather"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/weather"-->
+<!--            app:layout_constraintStart_toStartOf="@id/weather"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/weather"-->
+<!--            tools:ignore="ContentDescription" />-->
+
+
+
+<!--       -->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->

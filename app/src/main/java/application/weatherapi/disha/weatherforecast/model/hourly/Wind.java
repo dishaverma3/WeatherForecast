@@ -1,5 +1,5 @@
 
-package application.weatherapi.disha.weatherforecast.model;
+package application.weatherapi.disha.weatherforecast.model.hourly;
 
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
@@ -14,7 +14,7 @@ public class Wind implements Serializable
     @SerializedName("deg")
     @Expose
     private Integer deg;
-    private final static long serialVersionUID = 6187011654271510031L;
+    private final static long serialVersionUID = -6248012163534050475L;
 
     /**
      * No args constructor for use in serialization

@@ -55,5 +55,10 @@ dependencies {
 
 //    implementation 'androidx.multidex:multidex:2.0.1'
 
+    implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
+
+    implementation 'com.psoffritti.slidingpanel:core:1.0.0'
+
+
 
 }

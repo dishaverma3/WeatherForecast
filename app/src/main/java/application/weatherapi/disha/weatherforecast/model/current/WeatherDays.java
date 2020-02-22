@@ -1,4 +1,4 @@
-package application.weatherapi.disha.weatherforecast.model;
+package application.weatherapi.disha.weatherforecast.model.current;
 
 public class WeatherDays {
     private String icon;

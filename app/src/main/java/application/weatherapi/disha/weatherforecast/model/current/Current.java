@@ -1,5 +1,5 @@
 
-package application.weatherapi.disha.weatherforecast.model;
+package application.weatherapi.disha.weatherforecast.model.current;
 
 import java.io.Serializable;
 import java.util.List;

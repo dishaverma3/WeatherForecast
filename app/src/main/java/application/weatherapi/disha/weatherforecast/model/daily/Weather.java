@@ -1,5 +1,5 @@
 
-package application.weatherapi.disha.weatherforecast.model;
+package application.weatherapi.disha.weatherforecast.model.daily;
 
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
@@ -20,7 +20,7 @@ public class Weather implements Serializable
     @SerializedName("icon")
     @Expose
     private String icon;
-    private final static long serialVersionUID = -3271523718896058355L;
+    private final static long serialVersionUID = -7865059046017475524L;
 
     /**
      * No args constructor for use in serialization

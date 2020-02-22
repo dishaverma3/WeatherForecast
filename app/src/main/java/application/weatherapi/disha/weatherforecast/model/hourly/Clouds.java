@@ -1,5 +1,5 @@
 
-package application.weatherapi.disha.weatherforecast.model;
+package application.weatherapi.disha.weatherforecast.model.hourly;
 
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
@@ -11,7 +11,7 @@ public class Clouds implements Serializable
     @SerializedName("all")
     @Expose
     private Integer all;
-    private final static long serialVersionUID = 4039292501834749482L;
+    private final static long serialVersionUID = -4854340689935209309L;
 
     /**
      * No args constructor for use in serialization

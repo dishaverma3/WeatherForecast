@@ -1,60 +1,62 @@
 
-package application.weatherapi.disha.weatherforecast.model;
+package application.weatherapi.disha.weatherforecast.model.hourly;
 
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Sys implements Serializable
+public class City implements Serializable
 {
 
-    @SerializedName("type")
-    @Expose
-    private Integer type;
     @SerializedName("id")
     @Expose
     private Integer id;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("coord")
+    @Expose
+    private Coord coord;
     @SerializedName("country")
     @Expose
     private String country;
+    @SerializedName("timezone")
+    @Expose
+    private Integer timezone;
     @SerializedName("sunrise")
     @Expose
     private Integer sunrise;
     @SerializedName("sunset")
     @Expose
     private Integer sunset;
-    private final static long serialVersionUID = 5691833569809429128L;
+    private final static long serialVersionUID = 2964805669821625328L;
 
     /**
      * No args constructor for use in serialization
      * 
      */
-    public Sys() {
+    public City() {
     }
 
     /**
      * 
      * @param country
+     * @param coord
      * @param sunrise
+     * @param timezone
      * @param sunset
+     * @param name
      * @param id
-     * @param type
      */
-    public Sys(Integer type, Integer id, String country, Integer sunrise, Integer sunset) {
+    public City(Integer id, String name, Coord coord, String country, Integer timezone, Integer sunrise, Integer sunset) {
         super();
-        this.type = type;
         this.id = id;
+        this.name = name;
+        this.coord = coord;
         this.country = country;
+        this.timezone = timezone;
         this.sunrise = sunrise;
         this.sunset = sunset;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
     }
 
     public Integer getId() {
@@ -65,12 +67,36 @@ public class Sys implements Serializable
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Coord getCoord() {
+        return coord;
+    }
+
+    public void setCoord(Coord coord) {
+        this.coord = coord;
+    }
+
     public String getCountry() {
         return country;
     }
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Integer getTimezone() {
+        return timezone;
+    }
+
+    public void setTimezone(Integer timezone) {
+        this.timezone = timezone;
     }
 
     public Integer getSunrise() {

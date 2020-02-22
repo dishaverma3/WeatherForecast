@@ -1,5 +1,5 @@
 
-package application.weatherapi.disha.weatherforecast.model;
+package application.weatherapi.disha.weatherforecast.model.daily;
 
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
@@ -14,7 +14,7 @@ public class Coord implements Serializable
     @SerializedName("lat")
     @Expose
     private Double lat;
-    private final static long serialVersionUID = 8690986934429232008L;
+    private final static long serialVersionUID = 3051679394423199633L;
 
     /**
      * No args constructor for use in serialization
